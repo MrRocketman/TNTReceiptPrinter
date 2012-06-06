@@ -7,10 +7,9 @@
 //
 
 #import "MNAppDelegate.h"
-
-#import "MNFirstViewController.h"
-
-#import "MNSecondViewController.h"
+#import "MNDebugViewController.h"
+#import "MNCommandsViewController.h"
+#import "MNHTMLViewController.h"
 
 @implementation MNAppDelegate
 
@@ -21,16 +20,21 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    UIViewController *viewController1, *viewController2;
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        viewController1 = [[MNFirstViewController alloc] initWithNibName:@"MNFirstViewController_iPhone" bundle:nil];
-        viewController2 = [[MNSecondViewController alloc] initWithNibName:@"MNSecondViewController_iPhone" bundle:nil];
-    } else {
-        viewController1 = [[MNFirstViewController alloc] initWithNibName:@"MNFirstViewController_iPad" bundle:nil];
-        viewController2 = [[MNSecondViewController alloc] initWithNibName:@"MNSecondViewController_iPad" bundle:nil];
+    UIViewController *viewController1, *viewController2, *viewController3;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) 
+    {
+        viewController1 = [[MNDebugViewController alloc] initWithNibName:@"MNDebugViewController_iPhone" bundle:nil];
+        viewController2 = [[MNCommandsViewController alloc] initWithNibName:@"MNCommandsViewController_iPhone" bundle:nil];
+        viewController3 = [[MNHTMLViewController alloc] initWithNibName:@"MNHTMLViewController_iPhone" bundle:nil];
+    } 
+    else 
+    {
+        viewController1 = [[MNDebugViewController alloc] initWithNibName:@"MNDebugViewController_iPad" bundle:nil];
+        viewController2 = [[MNCommandsViewController alloc] initWithNibName:@"MNCommandsViewController_iPad" bundle:nil];
+        viewController3 = [[MNHTMLViewController alloc] initWithNibName:@"MNHTMLViewController_iPad" bundle:nil];
     }
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, nil];
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, viewController3, nil];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     return YES;
