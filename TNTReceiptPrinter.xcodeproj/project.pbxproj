@@ -23,6 +23,10 @@
 		1ADD8FB4157FF6690002FB8B /* MNFirstViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD8FB2157FF6690002FB8B /* MNFirstViewController_iPad.xib */; };
 		1ADD8FB7157FF6690002FB8B /* MNSecondViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD8FB5157FF6690002FB8B /* MNSecondViewController_iPhone.xib */; };
 		1ADD8FBA157FF6690002FB8B /* MNSecondViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD8FB8157FF6690002FB8B /* MNSecondViewController_iPad.xib */; };
+		1ADD8FC7157FF9E60002FB8B /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADD8FC4157FF9E60002FB8B /* GCDAsyncSocket.m */; };
+		1ADD8FC8157FF9E60002FB8B /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADD8FC6157FF9E60002FB8B /* GCDAsyncUdpSocket.m */; };
+		1ADD8FCC157FFAE90002FB8B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ADD8FCB157FFAE90002FB8B /* Security.framework */; };
+		1ADD8FCE157FFAEF0002FB8B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ADD8FCD157FFAEF0002FB8B /* CFNetwork.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,17 +34,17 @@
 		1ADD8F8F157FF6680002FB8B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1ADD8F91157FF6680002FB8B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1ADD8F93157FF6680002FB8B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		1ADD8F97157FF6680002FB8B /* TNTReceiptPrinter-Info.plist */ = {isa = PBXFileReference; path = "TNTReceiptPrinter-Info.plist"; sourceTree = "<group>"; };
+		1ADD8F97157FF6680002FB8B /* TNTReceiptPrinter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TNTReceiptPrinter-Info.plist"; sourceTree = "<group>"; };
 		1ADD8F99157FF6680002FB8B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1ADD8F9B157FF6680002FB8B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1ADD8F9D157FF6680002FB8B /* TNTReceiptPrinter-Prefix.pch */ = {isa = PBXFileReference; path = "TNTReceiptPrinter-Prefix.pch"; sourceTree = "<group>"; };
-		1ADD8F9E157FF6680002FB8B /* MNAppDelegate.h */ = {isa = PBXFileReference; path = MNAppDelegate.h; sourceTree = "<group>"; };
+		1ADD8F9D157FF6680002FB8B /* TNTReceiptPrinter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TNTReceiptPrinter-Prefix.pch"; sourceTree = "<group>"; };
+		1ADD8F9E157FF6680002FB8B /* MNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNAppDelegate.h; sourceTree = "<group>"; };
 		1ADD8F9F157FF6680002FB8B /* MNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNAppDelegate.m; sourceTree = "<group>"; };
-		1ADD8FA1157FF6680002FB8B /* MNFirstViewController.h */ = {isa = PBXFileReference; path = MNFirstViewController.h; sourceTree = "<group>"; };
+		1ADD8FA1157FF6680002FB8B /* MNFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNFirstViewController.h; sourceTree = "<group>"; };
 		1ADD8FA2157FF6680002FB8B /* MNFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNFirstViewController.m; sourceTree = "<group>"; };
 		1ADD8FA4157FF6680002FB8B /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		1ADD8FA6157FF6680002FB8B /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		1ADD8FA8157FF6680002FB8B /* MNSecondViewController.h */ = {isa = PBXFileReference; path = MNSecondViewController.h; sourceTree = "<group>"; };
+		1ADD8FA8157FF6680002FB8B /* MNSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNSecondViewController.h; sourceTree = "<group>"; };
 		1ADD8FA9157FF6690002FB8B /* MNSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNSecondViewController.m; sourceTree = "<group>"; };
 		1ADD8FAB157FF6690002FB8B /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		1ADD8FAD157FF6690002FB8B /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
@@ -48,6 +52,13 @@
 		1ADD8FB3157FF6690002FB8B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MNFirstViewController_iPad.xib; sourceTree = "<group>"; };
 		1ADD8FB6157FF6690002FB8B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MNSecondViewController_iPhone.xib; sourceTree = "<group>"; };
 		1ADD8FB9157FF6690002FB8B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MNSecondViewController_iPad.xib; sourceTree = "<group>"; };
+		1ADD8FC3157FF9E60002FB8B /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		1ADD8FC4157FF9E60002FB8B /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		1ADD8FC5157FF9E60002FB8B /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		1ADD8FC6157FF9E60002FB8B /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		1ADD8FCA157FFA450002FB8B /* TheBitmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheBitmap.h; sourceTree = "<group>"; };
+		1ADD8FCB157FFAE90002FB8B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		1ADD8FCD157FFAEF0002FB8B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ADD8FCE157FFAEF0002FB8B /* CFNetwork.framework in Frameworks */,
+				1ADD8FCC157FFAE90002FB8B /* Security.framework in Frameworks */,
 				1ADD8F90157FF6680002FB8B /* UIKit.framework in Frameworks */,
 				1ADD8F92157FF6680002FB8B /* Foundation.framework in Frameworks */,
 				1ADD8F94157FF6680002FB8B /* CoreGraphics.framework in Frameworks */,
@@ -84,6 +97,8 @@
 		1ADD8F8E157FF6680002FB8B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1ADD8FCB157FFAE90002FB8B /* Security.framework */,
+				1ADD8FCD157FFAEF0002FB8B /* CFNetwork.framework */,
 				1ADD8F8F157FF6680002FB8B /* UIKit.framework */,
 				1ADD8F91157FF6680002FB8B /* Foundation.framework */,
 				1ADD8F93157FF6680002FB8B /* CoreGraphics.framework */,
@@ -96,18 +111,10 @@
 			children = (
 				1ADD8F9E157FF6680002FB8B /* MNAppDelegate.h */,
 				1ADD8F9F157FF6680002FB8B /* MNAppDelegate.m */,
-				1ADD8FA1157FF6680002FB8B /* MNFirstViewController.h */,
-				1ADD8FA2157FF6680002FB8B /* MNFirstViewController.m */,
-				1ADD8FA4157FF6680002FB8B /* first.png */,
-				1ADD8FA6157FF6680002FB8B /* first@2x.png */,
-				1ADD8FA8157FF6680002FB8B /* MNSecondViewController.h */,
-				1ADD8FA9157FF6690002FB8B /* MNSecondViewController.m */,
-				1ADD8FAB157FF6690002FB8B /* second.png */,
-				1ADD8FAD157FF6690002FB8B /* second@2x.png */,
-				1ADD8FAF157FF6690002FB8B /* MNFirstViewController_iPhone.xib */,
-				1ADD8FB2157FF6690002FB8B /* MNFirstViewController_iPad.xib */,
-				1ADD8FB5157FF6690002FB8B /* MNSecondViewController_iPhone.xib */,
-				1ADD8FB8157FF6690002FB8B /* MNSecondViewController_iPad.xib */,
+				1ADD8FC9157FF9ED0002FB8B /* Socket */,
+				1ADD8FC2157FF68F0002FB8B /* Controllers */,
+				1ADD8FC0157FF67C0002FB8B /* Resources */,
+				1ADD8FC1157FF6830002FB8B /* Views */,
 				1ADD8F96157FF6680002FB8B /* Supporting Files */,
 			);
 			path = TNTReceiptPrinter;
@@ -122,6 +129,51 @@
 				1ADD8F9D157FF6680002FB8B /* TNTReceiptPrinter-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1ADD8FC0157FF67C0002FB8B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1ADD8FCA157FFA450002FB8B /* TheBitmap.h */,
+				1ADD8FA4157FF6680002FB8B /* first.png */,
+				1ADD8FA6157FF6680002FB8B /* first@2x.png */,
+				1ADD8FAB157FF6690002FB8B /* second.png */,
+				1ADD8FAD157FF6690002FB8B /* second@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		1ADD8FC1157FF6830002FB8B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1ADD8FAF157FF6690002FB8B /* MNFirstViewController_iPhone.xib */,
+				1ADD8FB2157FF6690002FB8B /* MNFirstViewController_iPad.xib */,
+				1ADD8FB5157FF6690002FB8B /* MNSecondViewController_iPhone.xib */,
+				1ADD8FB8157FF6690002FB8B /* MNSecondViewController_iPad.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		1ADD8FC2157FF68F0002FB8B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1ADD8FA1157FF6680002FB8B /* MNFirstViewController.h */,
+				1ADD8FA2157FF6680002FB8B /* MNFirstViewController.m */,
+				1ADD8FA8157FF6680002FB8B /* MNSecondViewController.h */,
+				1ADD8FA9157FF6690002FB8B /* MNSecondViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		1ADD8FC9157FF9ED0002FB8B /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				1ADD8FC3157FF9E60002FB8B /* GCDAsyncSocket.h */,
+				1ADD8FC4157FF9E60002FB8B /* GCDAsyncSocket.m */,
+				1ADD8FC5157FF9E60002FB8B /* GCDAsyncUdpSocket.h */,
+				1ADD8FC6157FF9E60002FB8B /* GCDAsyncUdpSocket.m */,
+			);
+			name = Socket;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +251,8 @@
 				1ADD8FA0157FF6680002FB8B /* MNAppDelegate.m in Sources */,
 				1ADD8FA3157FF6680002FB8B /* MNFirstViewController.m in Sources */,
 				1ADD8FAA157FF6690002FB8B /* MNSecondViewController.m in Sources */,
+				1ADD8FC7157FF9E60002FB8B /* GCDAsyncSocket.m in Sources */,
+				1ADD8FC8157FF9E60002FB8B /* GCDAsyncUdpSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

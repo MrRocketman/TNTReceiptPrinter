@@ -8,6 +8,27 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MNFirstViewController : UIViewController
+@class GCDAsyncSocket;
+
+@interface MNFirstViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate>
+{
+    IBOutlet UITextView *receivedDataTextView;
+    IBOutlet UITextField *dataToSendTextField;
+    IBOutlet UISegmentedControl *dataToSendEndOfLineCharacterSegmentedControl;
+    IBOutlet UILabel *statusLabel;
+    IBOutlet UIButton *connectDisconnectButton;
+    IBOutlet UIButton *printBitmapButton;
+    BOOL connected;
+    
+    BOOL commandFinished;
+    BOOL printingBitmap;
+    
+    GCDAsyncSocket *socket;
+}
+
+- (IBAction)endOfLineSegmentChange:(id)sender;
+- (IBAction)sendToPrinter:(id)sender;
+- (IBAction)connectDisconnectButtonPress:(id)sender;
+- (IBAction)printBitmapButtonPress:(id)sender;
 
 @end
