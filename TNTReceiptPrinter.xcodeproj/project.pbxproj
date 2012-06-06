@@ -1,0 +1,343 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1ADD8F90157FF6680002FB8B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ADD8F8F157FF6680002FB8B /* UIKit.framework */; };
+		1ADD8F92157FF6680002FB8B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ADD8F91157FF6680002FB8B /* Foundation.framework */; };
+		1ADD8F94157FF6680002FB8B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ADD8F93157FF6680002FB8B /* CoreGraphics.framework */; };
+		1ADD8F9A157FF6680002FB8B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD8F98157FF6680002FB8B /* InfoPlist.strings */; };
+		1ADD8F9C157FF6680002FB8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADD8F9B157FF6680002FB8B /* main.m */; };
+		1ADD8FA0157FF6680002FB8B /* MNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADD8F9F157FF6680002FB8B /* MNAppDelegate.m */; };
+		1ADD8FA3157FF6680002FB8B /* MNFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADD8FA2157FF6680002FB8B /* MNFirstViewController.m */; };
+		1ADD8FA5157FF6680002FB8B /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD8FA4157FF6680002FB8B /* first.png */; };
+		1ADD8FA7157FF6680002FB8B /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD8FA6157FF6680002FB8B /* first@2x.png */; };
+		1ADD8FAA157FF6690002FB8B /* MNSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADD8FA9157FF6690002FB8B /* MNSecondViewController.m */; };
+		1ADD8FAC157FF6690002FB8B /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD8FAB157FF6690002FB8B /* second.png */; };
+		1ADD8FAE157FF6690002FB8B /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD8FAD157FF6690002FB8B /* second@2x.png */; };
+		1ADD8FB1157FF6690002FB8B /* MNFirstViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD8FAF157FF6690002FB8B /* MNFirstViewController_iPhone.xib */; };
+		1ADD8FB4157FF6690002FB8B /* MNFirstViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD8FB2157FF6690002FB8B /* MNFirstViewController_iPad.xib */; };
+		1ADD8FB7157FF6690002FB8B /* MNSecondViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD8FB5157FF6690002FB8B /* MNSecondViewController_iPhone.xib */; };
+		1ADD8FBA157FF6690002FB8B /* MNSecondViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD8FB8157FF6690002FB8B /* MNSecondViewController_iPad.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1ADD8F8B157FF6680002FB8B /* TNTReceiptPrinter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TNTReceiptPrinter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1ADD8F8F157FF6680002FB8B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1ADD8F91157FF6680002FB8B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1ADD8F93157FF6680002FB8B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1ADD8F97157FF6680002FB8B /* TNTReceiptPrinter-Info.plist */ = {isa = PBXFileReference; path = "TNTReceiptPrinter-Info.plist"; sourceTree = "<group>"; };
+		1ADD8F99157FF6680002FB8B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1ADD8F9B157FF6680002FB8B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1ADD8F9D157FF6680002FB8B /* TNTReceiptPrinter-Prefix.pch */ = {isa = PBXFileReference; path = "TNTReceiptPrinter-Prefix.pch"; sourceTree = "<group>"; };
+		1ADD8F9E157FF6680002FB8B /* MNAppDelegate.h */ = {isa = PBXFileReference; path = MNAppDelegate.h; sourceTree = "<group>"; };
+		1ADD8F9F157FF6680002FB8B /* MNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNAppDelegate.m; sourceTree = "<group>"; };
+		1ADD8FA1157FF6680002FB8B /* MNFirstViewController.h */ = {isa = PBXFileReference; path = MNFirstViewController.h; sourceTree = "<group>"; };
+		1ADD8FA2157FF6680002FB8B /* MNFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNFirstViewController.m; sourceTree = "<group>"; };
+		1ADD8FA4157FF6680002FB8B /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		1ADD8FA6157FF6680002FB8B /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		1ADD8FA8157FF6680002FB8B /* MNSecondViewController.h */ = {isa = PBXFileReference; path = MNSecondViewController.h; sourceTree = "<group>"; };
+		1ADD8FA9157FF6690002FB8B /* MNSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNSecondViewController.m; sourceTree = "<group>"; };
+		1ADD8FAB157FF6690002FB8B /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		1ADD8FAD157FF6690002FB8B /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		1ADD8FB0157FF6690002FB8B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MNFirstViewController_iPhone.xib; sourceTree = "<group>"; };
+		1ADD8FB3157FF6690002FB8B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MNFirstViewController_iPad.xib; sourceTree = "<group>"; };
+		1ADD8FB6157FF6690002FB8B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MNSecondViewController_iPhone.xib; sourceTree = "<group>"; };
+		1ADD8FB9157FF6690002FB8B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MNSecondViewController_iPad.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1ADD8F88157FF6680002FB8B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1ADD8F90157FF6680002FB8B /* UIKit.framework in Frameworks */,
+				1ADD8F92157FF6680002FB8B /* Foundation.framework in Frameworks */,
+				1ADD8F94157FF6680002FB8B /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1ADD8F80157FF6680002FB8B = {
+			isa = PBXGroup;
+			children = (
+				1ADD8F95157FF6680002FB8B /* TNTReceiptPrinter */,
+				1ADD8F8E157FF6680002FB8B /* Frameworks */,
+				1ADD8F8C157FF6680002FB8B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1ADD8F8C157FF6680002FB8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1ADD8F8B157FF6680002FB8B /* TNTReceiptPrinter.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1ADD8F8E157FF6680002FB8B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1ADD8F8F157FF6680002FB8B /* UIKit.framework */,
+				1ADD8F91157FF6680002FB8B /* Foundation.framework */,
+				1ADD8F93157FF6680002FB8B /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1ADD8F95157FF6680002FB8B /* TNTReceiptPrinter */ = {
+			isa = PBXGroup;
+			children = (
+				1ADD8F9E157FF6680002FB8B /* MNAppDelegate.h */,
+				1ADD8F9F157FF6680002FB8B /* MNAppDelegate.m */,
+				1ADD8FA1157FF6680002FB8B /* MNFirstViewController.h */,
+				1ADD8FA2157FF6680002FB8B /* MNFirstViewController.m */,
+				1ADD8FA4157FF6680002FB8B /* first.png */,
+				1ADD8FA6157FF6680002FB8B /* first@2x.png */,
+				1ADD8FA8157FF6680002FB8B /* MNSecondViewController.h */,
+				1ADD8FA9157FF6690002FB8B /* MNSecondViewController.m */,
+				1ADD8FAB157FF6690002FB8B /* second.png */,
+				1ADD8FAD157FF6690002FB8B /* second@2x.png */,
+				1ADD8FAF157FF6690002FB8B /* MNFirstViewController_iPhone.xib */,
+				1ADD8FB2157FF6690002FB8B /* MNFirstViewController_iPad.xib */,
+				1ADD8FB5157FF6690002FB8B /* MNSecondViewController_iPhone.xib */,
+				1ADD8FB8157FF6690002FB8B /* MNSecondViewController_iPad.xib */,
+				1ADD8F96157FF6680002FB8B /* Supporting Files */,
+			);
+			path = TNTReceiptPrinter;
+			sourceTree = "<group>";
+		};
+		1ADD8F96157FF6680002FB8B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1ADD8F97157FF6680002FB8B /* TNTReceiptPrinter-Info.plist */,
+				1ADD8F98157FF6680002FB8B /* InfoPlist.strings */,
+				1ADD8F9B157FF6680002FB8B /* main.m */,
+				1ADD8F9D157FF6680002FB8B /* TNTReceiptPrinter-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1ADD8F8A157FF6680002FB8B /* TNTReceiptPrinter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1ADD8FBD157FF6690002FB8B /* Build configuration list for PBXNativeTarget "TNTReceiptPrinter" */;
+			buildPhases = (
+				1ADD8F87157FF6680002FB8B /* Sources */,
+				1ADD8F88157FF6680002FB8B /* Frameworks */,
+				1ADD8F89157FF6680002FB8B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TNTReceiptPrinter;
+			productName = TNTReceiptPrinter;
+			productReference = 1ADD8F8B157FF6680002FB8B /* TNTReceiptPrinter.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1ADD8F82157FF6680002FB8B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MN;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Pencil Busters, Inc";
+			};
+			buildConfigurationList = 1ADD8F85157FF6680002FB8B /* Build configuration list for PBXProject "TNTReceiptPrinter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1ADD8F80157FF6680002FB8B;
+			productRefGroup = 1ADD8F8C157FF6680002FB8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1ADD8F8A157FF6680002FB8B /* TNTReceiptPrinter */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1ADD8F89157FF6680002FB8B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1ADD8F9A157FF6680002FB8B /* InfoPlist.strings in Resources */,
+				1ADD8FA5157FF6680002FB8B /* first.png in Resources */,
+				1ADD8FA7157FF6680002FB8B /* first@2x.png in Resources */,
+				1ADD8FAC157FF6690002FB8B /* second.png in Resources */,
+				1ADD8FAE157FF6690002FB8B /* second@2x.png in Resources */,
+				1ADD8FB1157FF6690002FB8B /* MNFirstViewController_iPhone.xib in Resources */,
+				1ADD8FB4157FF6690002FB8B /* MNFirstViewController_iPad.xib in Resources */,
+				1ADD8FB7157FF6690002FB8B /* MNSecondViewController_iPhone.xib in Resources */,
+				1ADD8FBA157FF6690002FB8B /* MNSecondViewController_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1ADD8F87157FF6680002FB8B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1ADD8F9C157FF6680002FB8B /* main.m in Sources */,
+				1ADD8FA0157FF6680002FB8B /* MNAppDelegate.m in Sources */,
+				1ADD8FA3157FF6680002FB8B /* MNFirstViewController.m in Sources */,
+				1ADD8FAA157FF6690002FB8B /* MNSecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1ADD8F98157FF6680002FB8B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1ADD8F99157FF6680002FB8B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1ADD8FAF157FF6690002FB8B /* MNFirstViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1ADD8FB0157FF6690002FB8B /* en */,
+			);
+			name = MNFirstViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		1ADD8FB2157FF6690002FB8B /* MNFirstViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1ADD8FB3157FF6690002FB8B /* en */,
+			);
+			name = MNFirstViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		1ADD8FB5157FF6690002FB8B /* MNSecondViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1ADD8FB6157FF6690002FB8B /* en */,
+			);
+			name = MNSecondViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		1ADD8FB8157FF6690002FB8B /* MNSecondViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1ADD8FB9157FF6690002FB8B /* en */,
+			);
+			name = MNSecondViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1ADD8FBB157FF6690002FB8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1ADD8FBC157FF6690002FB8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1ADD8FBE157FF6690002FB8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TNTReceiptPrinter/TNTReceiptPrinter-Prefix.pch";
+				INFOPLIST_FILE = "TNTReceiptPrinter/TNTReceiptPrinter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1ADD8FBF157FF6690002FB8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TNTReceiptPrinter/TNTReceiptPrinter-Prefix.pch";
+				INFOPLIST_FILE = "TNTReceiptPrinter/TNTReceiptPrinter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1ADD8F85157FF6680002FB8B /* Build configuration list for PBXProject "TNTReceiptPrinter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1ADD8FBB157FF6690002FB8B /* Debug */,
+				1ADD8FBC157FF6690002FB8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1ADD8FBD157FF6690002FB8B /* Build configuration list for PBXNativeTarget "TNTReceiptPrinter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1ADD8FBE157FF6690002FB8B /* Debug */,
+				1ADD8FBF157FF6690002FB8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1ADD8F82157FF6680002FB8B /* Project object */;
+}
