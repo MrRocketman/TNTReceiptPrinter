@@ -19,17 +19,14 @@
 		1ADD8FAA157FF6690002FB8B /* MNCommandsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADD8FA9157FF6690002FB8B /* MNCommandsViewController.m */; };
 		1ADD8FAC157FF6690002FB8B /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD8FAB157FF6690002FB8B /* second.png */; };
 		1ADD8FAE157FF6690002FB8B /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD8FAD157FF6690002FB8B /* second@2x.png */; };
-		1ADD8FB1157FF6690002FB8B /* MNDebugViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD8FAF157FF6690002FB8B /* MNDebugViewController_iPhone.xib */; };
-		1ADD8FB4157FF6690002FB8B /* MNDebugViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD8FB2157FF6690002FB8B /* MNDebugViewController_iPad.xib */; };
-		1ADD8FB7157FF6690002FB8B /* MNCommandsViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD8FB5157FF6690002FB8B /* MNCommandsViewController_iPhone.xib */; };
-		1ADD8FBA157FF6690002FB8B /* MNCommandsViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD8FB8157FF6690002FB8B /* MNCommandsViewController_iPad.xib */; };
+		1ADD8FB1157FF6690002FB8B /* MNDebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD8FAF157FF6690002FB8B /* MNDebugViewController.xib */; };
+		1ADD8FB7157FF6690002FB8B /* MNCommandsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD8FB5157FF6690002FB8B /* MNCommandsViewController.xib */; };
 		1ADD8FC7157FF9E60002FB8B /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADD8FC4157FF9E60002FB8B /* GCDAsyncSocket.m */; };
 		1ADD8FC8157FF9E60002FB8B /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADD8FC6157FF9E60002FB8B /* GCDAsyncUdpSocket.m */; };
 		1ADD8FCC157FFAE90002FB8B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ADD8FCB157FFAE90002FB8B /* Security.framework */; };
 		1ADD8FCE157FFAEF0002FB8B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ADD8FCD157FFAEF0002FB8B /* CFNetwork.framework */; };
 		1ADD8FD7157FFD800002FB8B /* MNHTMLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADD8FD5157FFD800002FB8B /* MNHTMLViewController.m */; };
-		1ADD8FDD157FFDE20002FB8B /* MNHTMLViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD8FD9157FFDE20002FB8B /* MNHTMLViewController_iPad.xib */; };
-		1ADD8FDE157FFDE20002FB8B /* MNHTMLViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD8FDB157FFDE20002FB8B /* MNHTMLViewController_iPhone.xib */; };
+		1ADD8FDE157FFDE20002FB8B /* MNHTMLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD8FDB157FFDE20002FB8B /* MNHTMLViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,10 +48,8 @@
 		1ADD8FA9157FF6690002FB8B /* MNCommandsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNCommandsViewController.m; sourceTree = "<group>"; };
 		1ADD8FAB157FF6690002FB8B /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		1ADD8FAD157FF6690002FB8B /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
-		1ADD8FB0157FF6690002FB8B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MNDebugViewController_iPhone.xib; sourceTree = "<group>"; };
-		1ADD8FB3157FF6690002FB8B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MNDebugViewController_iPad.xib; sourceTree = "<group>"; };
-		1ADD8FB6157FF6690002FB8B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MNCommandsViewController_iPhone.xib; sourceTree = "<group>"; };
-		1ADD8FB9157FF6690002FB8B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MNCommandsViewController_iPad.xib; sourceTree = "<group>"; };
+		1ADD8FB0157FF6690002FB8B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MNDebugViewController.xib; sourceTree = "<group>"; };
+		1ADD8FB6157FF6690002FB8B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MNCommandsViewController.xib; sourceTree = "<group>"; };
 		1ADD8FC3157FF9E60002FB8B /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		1ADD8FC4157FF9E60002FB8B /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		1ADD8FC5157FF9E60002FB8B /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
@@ -64,8 +59,7 @@
 		1ADD8FCD157FFAEF0002FB8B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		1ADD8FD4157FFD800002FB8B /* MNHTMLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNHTMLViewController.h; sourceTree = "<group>"; };
 		1ADD8FD5157FFD800002FB8B /* MNHTMLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNHTMLViewController.m; sourceTree = "<group>"; };
-		1ADD8FDA157FFDE20002FB8B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MNHTMLViewController_iPad.xib; sourceTree = "<group>"; };
-		1ADD8FDC157FFDE20002FB8B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MNHTMLViewController_iPhone.xib; sourceTree = "<group>"; };
+		1ADD8FDC157FFDE20002FB8B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MNHTMLViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,12 +147,9 @@
 		1ADD8FC1157FF6830002FB8B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1ADD8FAF157FF6690002FB8B /* MNDebugViewController_iPhone.xib */,
-				1ADD8FB2157FF6690002FB8B /* MNDebugViewController_iPad.xib */,
-				1ADD8FB5157FF6690002FB8B /* MNCommandsViewController_iPhone.xib */,
-				1ADD8FB8157FF6690002FB8B /* MNCommandsViewController_iPad.xib */,
-				1ADD8FDB157FFDE20002FB8B /* MNHTMLViewController_iPhone.xib */,
-				1ADD8FD9157FFDE20002FB8B /* MNHTMLViewController_iPad.xib */,
+				1ADD8FAF157FF6690002FB8B /* MNDebugViewController.xib */,
+				1ADD8FB5157FF6690002FB8B /* MNCommandsViewController.xib */,
+				1ADD8FDB157FFDE20002FB8B /* MNHTMLViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -244,12 +235,9 @@
 				1ADD8FA7157FF6680002FB8B /* first@2x.png in Resources */,
 				1ADD8FAC157FF6690002FB8B /* second.png in Resources */,
 				1ADD8FAE157FF6690002FB8B /* second@2x.png in Resources */,
-				1ADD8FB1157FF6690002FB8B /* MNDebugViewController_iPhone.xib in Resources */,
-				1ADD8FB4157FF6690002FB8B /* MNDebugViewController_iPad.xib in Resources */,
-				1ADD8FB7157FF6690002FB8B /* MNCommandsViewController_iPhone.xib in Resources */,
-				1ADD8FBA157FF6690002FB8B /* MNCommandsViewController_iPad.xib in Resources */,
-				1ADD8FDD157FFDE20002FB8B /* MNHTMLViewController_iPad.xib in Resources */,
-				1ADD8FDE157FFDE20002FB8B /* MNHTMLViewController_iPhone.xib in Resources */,
+				1ADD8FB1157FF6690002FB8B /* MNDebugViewController.xib in Resources */,
+				1ADD8FB7157FF6690002FB8B /* MNCommandsViewController.xib in Resources */,
+				1ADD8FDE157FFDE20002FB8B /* MNHTMLViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,52 +269,28 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		1ADD8FAF157FF6690002FB8B /* MNDebugViewController_iPhone.xib */ = {
+		1ADD8FAF157FF6690002FB8B /* MNDebugViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				1ADD8FB0157FF6690002FB8B /* en */,
 			);
-			name = MNDebugViewController_iPhone.xib;
+			name = MNDebugViewController.xib;
 			sourceTree = "<group>";
 		};
-		1ADD8FB2157FF6690002FB8B /* MNDebugViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1ADD8FB3157FF6690002FB8B /* en */,
-			);
-			name = MNDebugViewController_iPad.xib;
-			sourceTree = "<group>";
-		};
-		1ADD8FB5157FF6690002FB8B /* MNCommandsViewController_iPhone.xib */ = {
+		1ADD8FB5157FF6690002FB8B /* MNCommandsViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				1ADD8FB6157FF6690002FB8B /* en */,
 			);
-			name = MNCommandsViewController_iPhone.xib;
+			name = MNCommandsViewController.xib;
 			sourceTree = "<group>";
 		};
-		1ADD8FB8157FF6690002FB8B /* MNCommandsViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1ADD8FB9157FF6690002FB8B /* en */,
-			);
-			name = MNCommandsViewController_iPad.xib;
-			sourceTree = "<group>";
-		};
-		1ADD8FD9157FFDE20002FB8B /* MNHTMLViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1ADD8FDA157FFDE20002FB8B /* en */,
-			);
-			name = MNHTMLViewController_iPad.xib;
-			sourceTree = "<group>";
-		};
-		1ADD8FDB157FFDE20002FB8B /* MNHTMLViewController_iPhone.xib */ = {
+		1ADD8FDB157FFDE20002FB8B /* MNHTMLViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				1ADD8FDC157FFDE20002FB8B /* en */,
 			);
-			name = MNHTMLViewController_iPhone.xib;
+			name = MNHTMLViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

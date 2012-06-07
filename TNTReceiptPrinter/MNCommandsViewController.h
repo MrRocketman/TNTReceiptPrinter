@@ -8,6 +8,88 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MNCommandsViewController : UIViewController
+@class GCDAsyncSocket;
+
+enum 
+{
+    kDisconnected,
+    kConnected,
+    kWaitingForIPAddress,
+    kPrinterBusy,
+};
+
+@interface MNCommandsViewController : UIViewController <UITextFieldDelegate>
+{
+    IBOutlet UIScrollView *scrollView;
+    IBOutlet UIView *scrollViewContent;
+    IBOutlet UIButton *connectDisconnectButton;
+    IBOutlet UILabel *connectedStatusLabel;
+    IBOutlet UITextField *passwordTextField;
+    IBOutlet UITextField *networkNameTextField;
+    IBOutlet UIButton *sleepWakeButton;
+    IBOutlet UIButton *printerOfflineOnlineButton;
+    IBOutlet UITextField *textToPrintTextField;
+    IBOutlet UIButton *upsidedownOnOffButton;
+    IBOutlet UIButton *inverseOnOffButton;
+    IBOutlet UIButton *boldOnOffButton;
+    IBOutlet UIButton *strikeOnOffButton;
+    IBOutlet UIButton *doubleHeightOnOffButton;
+    IBOutlet UIButton *doubleWidthOnOffButton;
+    IBOutlet UILabel *lineFeedValue;
+    IBOutlet UILabel *pixelFeedValue;
+    IBOutlet UILabel *characterSpacingValue;
+    IBOutlet UILabel *lineHeightValue;
+    
+    GCDAsyncSocket *socket;
+    int connectedStatus;
+    NSDate *connectAttemptDate;
+}
+
+@property (readonly, strong) IBOutlet UIButton *connectDisconnectButton;
+@property (readonly, strong) IBOutlet UILabel *connectedStatusLabel;
+@property (readonly, strong) IBOutlet UITextField *passwordTextField;
+@property (readonly, strong) IBOutlet UITextField *networkNameTextField;
+@property (readonly, strong) IBOutlet UIButton *sleepWakeButton;
+@property (readonly, strong) IBOutlet UIButton *printerOfflineOnlineButton;
+@property (readonly, strong) IBOutlet UITextField *textToPrintTextField;
+@property (readonly, strong) IBOutlet UIButton *upsidedownOnOffButton;
+@property (readonly, strong) IBOutlet UIButton *inverseOnOffButton;
+@property (readonly, strong) IBOutlet UIButton *boldOnOffButton;
+@property (readonly, strong) IBOutlet UIButton *strikeOnOffButton;
+@property (readonly, strong) IBOutlet UIButton *doubleHeightOnOffButton;
+@property (readonly, strong) IBOutlet UIButton *doubleWidthOnOffButton;
+@property (readonly, strong) IBOutlet UILabel *lineFeedValue;
+@property (readonly, strong) IBOutlet UILabel *pixelFeedValue;
+@property (readonly, strong) IBOutlet UILabel *characterSpacingValue;
+@property (readonly, strong) IBOutlet UILabel *lineHeightValue;
+
+- (IBAction)connectDisconnectButtonTouch:(id)sender;
+- (IBAction)authorizePasswordButtonTouch:(id)sender;
+- (IBAction)changePasswordButtonTouch:(id)sender;
+- (IBAction)requestNetworkNameButtonTouch:(id)sender;
+- (IBAction)changeNetworkNameButtonTouch:(id)sender;
+- (IBAction)sleepWakePrinterButtonTouch:(id)sender;
+- (IBAction)printerOfflineOnlineButtonTouch:(id)sender;
+- (IBAction)iOSBitmapButtonTouch:(id)sender;
+- (IBAction)defaultBitmapButtonTouch:(id)sender;
+- (IBAction)restoreDefaultPrinterSettingsButtonTouch:(id)sender;
+- (IBAction)restoreDefaultNetworkSettingsButtonTouch:(id)sender;
+- (IBAction)resetPrinterButtonTouch:(id)sender;
+- (IBAction)printTextButtonTouch:(id)sender;
+- (IBAction)upsidedownOnOffButtonTouch:(id)sender;
+- (IBAction)inverseOnOffButtonTouch:(id)sender;
+- (IBAction)boldOnOffButtonTouch:(id)sender;
+- (IBAction)strikeOnOffButtonTouch:(id)sender;
+- (IBAction)xHeightOnOffButtonTouch:(id)sender;
+- (IBAction)xWidthOnOffButtonTouch:(id)sender;
+- (IBAction)underlineSegmentedControlValueChanged:(id)sender;
+- (IBAction)textAlignmentSegmentedControlVallueChanged:(id)sender;
+- (IBAction)textSizeSegmentedControlValueChanged:(id)sender;
+- (IBAction)lineFeedButtonTouch:(id)sender;
+- (IBAction)lineFeedStepperValueChanged:(id)sender;
+- (IBAction)pixelFeedButtonTouch:(id)sender;
+- (IBAction)pixelFeedStepperValueChanged:(id)sender;
+- (IBAction)characterSpacingStepperValueChanged:(id)sender;
+- (IBAction)lineHeightStepperValueChanged:(id)sender;
 
 @end

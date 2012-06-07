@@ -21,7 +21,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     UIViewController *viewController1, *viewController2, *viewController3;
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) 
+    /*if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) 
     {
         viewController1 = [[MNDebugViewController alloc] initWithNibName:@"MNDebugViewController_iPhone" bundle:nil];
         viewController2 = [[MNCommandsViewController alloc] initWithNibName:@"MNCommandsViewController_iPhone" bundle:nil];
@@ -32,11 +32,16 @@
         viewController1 = [[MNDebugViewController alloc] initWithNibName:@"MNDebugViewController_iPad" bundle:nil];
         viewController2 = [[MNCommandsViewController alloc] initWithNibName:@"MNCommandsViewController_iPad" bundle:nil];
         viewController3 = [[MNHTMLViewController alloc] initWithNibName:@"MNHTMLViewController_iPad" bundle:nil];
-    }
+    }*/
+    viewController1 = [[MNDebugViewController alloc] initWithNibName:@"MNDebugViewController" bundle:nil];
+    viewController2 = [[MNCommandsViewController alloc] initWithNibName:@"MNCommandsViewController" bundle:nil];
+    viewController3 = [[MNHTMLViewController alloc] initWithNibName:@"MNHTMLViewController" bundle:nil];
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, viewController3, nil];
     self.window.rootViewController = self.tabBarController;
+    self.tabBarController.selectedIndex = 1;
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

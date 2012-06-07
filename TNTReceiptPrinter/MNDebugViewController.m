@@ -59,7 +59,7 @@
 	dispatch_queue_t mainQueue = dispatch_get_main_queue();
 	socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:mainQueue];
     
-    [self connectToPrinter];
+    //[self connectToPrinter];
 }
 
 - (void)viewDidUnload
