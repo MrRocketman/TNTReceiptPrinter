@@ -18,35 +18,74 @@ enum
     kPrinterBusy,
 };
 
+enum
+{
+    kNoUnderline,
+    kThinUnderline,
+    kThickUnderline,
+};
+
+enum
+{
+    kLeftAlignment,
+    kCenterAlignment,
+    kRightAlignment,
+};
+
+enum
+{
+    kSmallTextSize,
+    kMediumTextSize,
+    kLargeTextSize,
+};
+
 @interface MNCommandsViewController : UIViewController <UITextFieldDelegate>
 {
     IBOutlet UIScrollView *scrollView;
     IBOutlet UIView *scrollViewContent;
     IBOutlet UIButton *connectDisconnectButton;
     IBOutlet UILabel *connectedStatusLabel;
+    int connectedStatus;
+    IBOutlet UILabel *authorizedLabel;
     IBOutlet UITextField *passwordTextField;
     IBOutlet UITextField *networkNameTextField;
     IBOutlet UIButton *sleepWakeButton;
+    BOOL sleep;
     IBOutlet UIButton *printerOfflineOnlineButton;
+    BOOL printerOffline;
     IBOutlet UITextField *textToPrintTextField;
     IBOutlet UIButton *upsidedownOnOffButton;
+    BOOL upsidedownOn;
     IBOutlet UIButton *inverseOnOffButton;
+    BOOL inverseOn;
     IBOutlet UIButton *boldOnOffButton;
+    BOOL boldOn;
     IBOutlet UIButton *strikeOnOffButton;
+    BOOL strikeOn;
     IBOutlet UIButton *doubleHeightOnOffButton;
+    BOOL doubleHeightOn;
     IBOutlet UIButton *doubleWidthOnOffButton;
+    BOOL doubleWidthOn;
+    IBOutlet UIStepper *lineFeedStepper;
     IBOutlet UILabel *lineFeedValue;
+    IBOutlet UIStepper *pixelFeedStepper;
     IBOutlet UILabel *pixelFeedValue;
+    IBOutlet UIStepper *characterSpacingStepper;
     IBOutlet UILabel *characterSpacingValue;
+    IBOutlet UIStepper *lineHeightStepper;
     IBOutlet UILabel *lineHeightValue;
     
     GCDAsyncSocket *socket;
-    int connectedStatus;
     NSDate *connectAttemptDate;
+    
+    BOOL commandFinished;
 }
 
+@property (readonly, strong) IBOutlet UIScrollView *scrollView;
+@property (readonly, strong) IBOutlet UIView *scrollViewContent;
 @property (readonly, strong) IBOutlet UIButton *connectDisconnectButton;
 @property (readonly, strong) IBOutlet UILabel *connectedStatusLabel;
+@property (readonly, strong) IBOutlet UILabel *authorizedLabel;
 @property (readonly, strong) IBOutlet UITextField *passwordTextField;
 @property (readonly, strong) IBOutlet UITextField *networkNameTextField;
 @property (readonly, strong) IBOutlet UIButton *sleepWakeButton;
@@ -58,9 +97,13 @@ enum
 @property (readonly, strong) IBOutlet UIButton *strikeOnOffButton;
 @property (readonly, strong) IBOutlet UIButton *doubleHeightOnOffButton;
 @property (readonly, strong) IBOutlet UIButton *doubleWidthOnOffButton;
+@property (readonly, strong) IBOutlet UIStepper *lineFeedStepper;
 @property (readonly, strong) IBOutlet UILabel *lineFeedValue;
+@property (readonly, strong) IBOutlet UIStepper *pixelFeedStepper;
 @property (readonly, strong) IBOutlet UILabel *pixelFeedValue;
+@property (readonly, strong) IBOutlet UIStepper *characterSpacingStepper;
 @property (readonly, strong) IBOutlet UILabel *characterSpacingValue;
+@property (readonly, strong) IBOutlet UIStepper *lineHeightStepper;
 @property (readonly, strong) IBOutlet UILabel *lineHeightValue;
 
 - (IBAction)connectDisconnectButtonTouch:(id)sender;

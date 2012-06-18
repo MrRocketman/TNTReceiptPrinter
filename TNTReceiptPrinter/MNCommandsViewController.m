@@ -17,14 +17,19 @@
 
 - (void)connectToPrinter;
 - (void)updateConnectButton;
+- (void)sendCommandToPrinter:(NSString *)commandText;
+- (void)writeStringToSocket:(NSString *)string;
 - (void)writeDataToSocket:(NSData *)data;
 
 @end
 
 @implementation MNCommandsViewController
 
+@synthesize scrollView;
+@synthesize scrollViewContent;
 @synthesize connectDisconnectButton;
 @synthesize connectedStatusLabel;
+@synthesize authorizedLabel;
 @synthesize passwordTextField;
 @synthesize networkNameTextField;
 @synthesize sleepWakeButton;
@@ -36,9 +41,13 @@
 @synthesize strikeOnOffButton;
 @synthesize doubleHeightOnOffButton;
 @synthesize doubleWidthOnOffButton;
+@synthesize lineFeedStepper;
 @synthesize lineFeedValue;
+@synthesize pixelFeedStepper;
 @synthesize pixelFeedValue;
+@synthesize characterSpacingStepper;
 @synthesize characterSpacingValue;
+@synthesize lineHeightStepper;
 @synthesize lineHeightValue;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -58,6 +67,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     scrollView.contentSize = scrollViewContent.frame.size;
+    commandFinished = YES;
     
     // Setup our socket (GCDAsyncSocket).
 	// The socket will invoke our delegate methods using the usual delegate paradigm.
@@ -98,6 +108,11 @@
     doubleWidthOnOffButton = nil;
     scrollView = nil;
     scrollViewContent = nil;
+    authorizedLabel = nil;
+    lineFeedStepper = nil;
+    pixelFeedStepper = nil;
+    characterSpacingStepper = nil;
+    lineHeightStepper = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -143,9 +158,29 @@
     }
 }
 
+- (void)sendCommandToPrinter:(NSString *)commandText
+{
+    commandText = [commandText stringByAppendingString:@"\n"];
+    [self writeStringToSocket:commandText];
+}
+
+- (void)writeStringToSocket:(NSString *)string
+{
+    NSLog(@"Sending: %@", string);
+    NSData *requestData = [string dataUsingEncoding:NSUTF8StringEncoding];
+    [self writeDataToSocket:requestData];
+}
+
 - (void)writeDataToSocket:(NSData *)data
 {
+    while(commandFinished == NO)
+    {
+        NSLog(@"Waiting for command finished");
+    }
+    
+    NSLog(@"Write");
     [socket writeData:data withTimeout:-1 tag:0];
+    commandFinished = NO;
 }
 
 #pragma mark - Socket Delegate
@@ -162,8 +197,8 @@
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err
 {
     NSDate *errorDate = [NSDate date];
+    authorizedLabel.text = @"Not Authorized";
 	NSLog(@"DidDisconnectWithError: %@", err);
-    NSLog(@"timeInterval:%f", [errorDate timeIntervalSinceDate:connectAttemptDate]);
     
     // Waiting for IP
     if([errorDate timeIntervalSinceDate:connectAttemptDate] > 0.9)
@@ -206,22 +241,39 @@
 	NSString *httpResponse = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 	NSLog(@"Response:\n%@", httpResponse);
     
-    /*for(int i = 0; i < [httpResponse length]; i ++)
+    NSRange stringRange;
+    stringRange = [httpResponse rangeOfString:@"Authorized"];
+    if(stringRange.location != NSNotFound)
     {
-        if([httpResponse characterAtIndex:i] == COMMAND_FINISHED)
-        {
-            commandFinished = YES;
-        }
+        authorizedLabel.text = @"Authorized";
     }
     
-    [receivedDataTextView setText:[NSString stringWithFormat:@"%@%@", [receivedDataTextView text], httpResponse]];
-    [receivedDataTextView scrollRangeToVisible:NSMakeRange([receivedDataTextView.text length], 0)];*/
+    stringRange = [httpResponse rangeOfString:[NSString stringWithFormat:@"%c", COMMAND_FINISHED]];
+    if(stringRange.location != NSNotFound)
+    {
+        commandFinished = YES;
+        NSLog(@"commandFinished");
+    }
+    
     [socket readDataWithTimeout:-1 tag:0];
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didReadPartialDataOfLength:(NSUInteger)partialLength tag:(long)tag
 {
     NSLog(@"didReadPartialData:withTag:%ld", tag);
+}
+
+#pragma mark - UITextField Delegate
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField 
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 #pragma mark - IBActions
@@ -239,85 +291,269 @@
     }
 }
 
-- (IBAction)authorizePasswordButtonTouch:(id)sender {
+- (IBAction)authorizePasswordButtonTouch:(id)sender 
+{
+    [self sendCommandToPrinter:[NSString stringWithFormat:@"P0 V%@", [passwordTextField text]]];
 }
 
-- (IBAction)changePasswordButtonTouch:(id)sender {
+- (IBAction)changePasswordButtonTouch:(id)sender 
+{
+    [self sendCommandToPrinter:[NSString stringWithFormat:@"P06 V%@", [passwordTextField text]]];
 }
 
-- (IBAction)requestNetworkNameButtonTouch:(id)sender {
+- (IBAction)requestNetworkNameButtonTouch:(id)sender 
+{
+    
 }
 
-- (IBAction)changeNetworkNameButtonTouch:(id)sender {
+- (IBAction)changeNetworkNameButtonTouch:(id)sender 
+{
+    [self sendCommandToPrinter:[NSString stringWithFormat:@"P07 V%@", [networkNameTextField text]]];
 }
 
-- (IBAction)sleepWakePrinterButtonTouch:(id)sender {
+- (IBAction)sleepWakePrinterButtonTouch:(id)sender 
+{
+    if(sleep == NO)
+    {
+        [self sendCommandToPrinter:@"P03"];
+        [self.sleepWakeButton setTitle:@"Wake Printer" forState:UIControlStateNormal];
+    }
+    else
+    {
+        [self sendCommandToPrinter:@"P02"];
+        [self.sleepWakeButton setTitle:@"Sleep Printer" forState:UIControlStateNormal];
+    }
+    
+    sleep = !sleep;
 }
 
-- (IBAction)printerOfflineOnlineButtonTouch:(id)sender {
+- (IBAction)printerOfflineOnlineButtonTouch:(id)sender 
+{
+    if(printerOffline == NO)
+    {
+        [self sendCommandToPrinter:@"P05"];
+        [self.printerOfflineOnlineButton setTitle:@"Printer Online" forState:UIControlStateNormal];
+    }
+    else
+    {
+        [self sendCommandToPrinter:@"P04"];
+        [self.printerOfflineOnlineButton setTitle:@"Printer Offline" forState:UIControlStateNormal];
+    }
+    
+    printerOffline = !printerOffline;
 }
 
-- (IBAction)iOSBitmapButtonTouch:(id)sender {
+- (IBAction)iOSBitmapButtonTouch:(id)sender 
+{
+    
 }
 
-- (IBAction)defaultBitmapButtonTouch:(id)sender {
+- (IBAction)defaultBitmapButtonTouch:(id)sender 
+{
+    [self sendCommandToPrinter:@"P11"];
 }
 
-- (IBAction)restoreDefaultPrinterSettingsButtonTouch:(id)sender {
+- (IBAction)restoreDefaultPrinterSettingsButtonTouch:(id)sender 
+{
+    [self sendCommandToPrinter:@"P97"];
+    // TODO: Set all of the iPhone values to default
 }
 
-- (IBAction)restoreDefaultNetworkSettingsButtonTouch:(id)sender {
+- (IBAction)restoreDefaultNetworkSettingsButtonTouch:(id)sender 
+{
+    [self sendCommandToPrinter:@"P98"];
 }
 
-- (IBAction)resetPrinterButtonTouch:(id)sender {
+- (IBAction)resetPrinterButtonTouch:(id)sender 
+{
+    [self sendCommandToPrinter:@"P99"];
 }
 
-- (IBAction)printTextButtonTouch:(id)sender {
+- (IBAction)printTextButtonTouch:(id)sender 
+{
+    [self sendCommandToPrinter:[NSString stringWithFormat:@"P01 V%@", [textToPrintTextField text]]];
 }
 
-- (IBAction)upsidedownOnOffButtonTouch:(id)sender {
+- (IBAction)upsidedownOnOffButtonTouch:(id)sender 
+{
+    if(upsidedownOn == NO)
+    {
+        [self sendCommandToPrinter:@"F02 V1"];
+        [self.upsidedownOnOffButton setTitle:@"Upsidedown Off" forState:UIControlStateNormal];
+    }
+    else
+    {
+        [self sendCommandToPrinter:@"F02 V0"];
+        [self.upsidedownOnOffButton setTitle:@"Upsidedown On" forState:UIControlStateNormal];
+    }
+    
+    upsidedownOn = !upsidedownOn;
 }
 
-- (IBAction)inverseOnOffButtonTouch:(id)sender {
+- (IBAction)inverseOnOffButtonTouch:(id)sender 
+{
+    if(inverseOn == NO)
+    {
+        [self sendCommandToPrinter:@"F01 V1"];
+        [self.inverseOnOffButton setTitle:@"Inverse Off" forState:UIControlStateNormal];
+    }
+    else
+    {
+        [self sendCommandToPrinter:@"F01 V0"];
+        [self.inverseOnOffButton setTitle:@"Inverse On" forState:UIControlStateNormal];
+    }
+    
+    inverseOn = !inverseOn;
 }
 
-- (IBAction)boldOnOffButtonTouch:(id)sender {
+- (IBAction)boldOnOffButtonTouch:(id)sender 
+{
+    if(boldOn == NO)
+    {
+        [self sendCommandToPrinter:@"F06 V1"];
+        [self.boldOnOffButton setTitle:@"Bold Off" forState:UIControlStateNormal];
+    }
+    else
+    {
+        [self sendCommandToPrinter:@"F06 V0"];
+        [self.boldOnOffButton setTitle:@"Bold On" forState:UIControlStateNormal];
+    }
+    
+    boldOn = !boldOn;
 }
 
-- (IBAction)strikeOnOffButtonTouch:(id)sender {
+- (IBAction)strikeOnOffButtonTouch:(id)sender 
+{
+    if(strikeOn == NO)
+    {
+        [self sendCommandToPrinter:@"F05 V1"];
+        [self.strikeOnOffButton setTitle:@"Strike Off" forState:UIControlStateNormal];
+    }
+    else
+    {
+        [self sendCommandToPrinter:@"F05 V0"];
+        [self.strikeOnOffButton setTitle:@"Strike On" forState:UIControlStateNormal];
+    }
+    
+    strikeOn = !strikeOn;
 }
 
-- (IBAction)xHeightOnOffButtonTouch:(id)sender {
+- (IBAction)xHeightOnOffButtonTouch:(id)sender 
+{
+    if(doubleHeightOn == NO)
+    {
+        [self sendCommandToPrinter:@"F03 V1"];
+        [self.doubleHeightOnOffButton setTitle:@"2x Height Off" forState:UIControlStateNormal];
+    }
+    else
+    {
+        [self sendCommandToPrinter:@"F03 V0"];
+        [self.doubleHeightOnOffButton setTitle:@"2x Height On" forState:UIControlStateNormal];
+    }
+    
+    doubleHeightOn = !doubleHeightOn;
 }
 
-- (IBAction)xWidthOnOffButtonTouch:(id)sender {
+- (IBAction)xWidthOnOffButtonTouch:(id)sender 
+{
+    if(doubleWidthOn == NO)
+    {
+        [self sendCommandToPrinter:@"F04 V1"];
+        [self.doubleWidthOnOffButton setTitle:@"2x Width Off" forState:UIControlStateNormal];
+    }
+    else
+    {
+        [self sendCommandToPrinter:@"F04 V0"];
+        [self.doubleWidthOnOffButton setTitle:@"2x Width On" forState:UIControlStateNormal];
+    }
+    
+    doubleWidthOn = !doubleWidthOn;
 }
 
-- (IBAction)underlineSegmentedControlValueChanged:(id)sender {
+- (IBAction)underlineSegmentedControlValueChanged:(id)sender 
+{
+    switch ([(UISegmentedControl *)sender selectedSegmentIndex]) 
+    {
+        case kNoUnderline:
+            [self sendCommandToPrinter:@"F11 V0"];
+            break;
+        case kThinUnderline:
+            [self sendCommandToPrinter:@"F11 V1"];
+            break;
+        case kThickUnderline:
+            [self sendCommandToPrinter:@"F11 V2"];
+            break;
+        default:
+            break;
+    }
 }
 
-- (IBAction)textAlignmentSegmentedControlVallueChanged:(id)sender {
+- (IBAction)textAlignmentSegmentedControlVallueChanged:(id)sender 
+{
+    switch ([(UISegmentedControl *)sender selectedSegmentIndex]) 
+    {
+        case kLeftAlignment:
+            [self sendCommandToPrinter:@"F07 VL"];
+            break;
+        case kCenterAlignment:
+            [self sendCommandToPrinter:@"F07 VC"];
+            break;
+        case kRightAlignment:
+            [self sendCommandToPrinter:@"F07 VR"];
+            break;
+        default:
+            break;
+    }
 }
 
-- (IBAction)textSizeSegmentedControlValueChanged:(id)sender {
+- (IBAction)textSizeSegmentedControlValueChanged:(id)sender 
+{
+    switch ([(UISegmentedControl *)sender selectedSegmentIndex]) 
+    {
+        case kSmallTextSize:
+            [self sendCommandToPrinter:@"F10 VS"];
+            break;
+        case kMediumTextSize:
+            [self sendCommandToPrinter:@"F10 VM"];
+            break;
+        case kLargeTextSize:
+            [self sendCommandToPrinter:@"F10 VL"];
+            break;
+        default:
+            break;
+    }
 }
 
-- (IBAction)lineFeedButtonTouch:(id)sender {
+- (IBAction)lineFeedButtonTouch:(id)sender 
+{
+    [self sendCommandToPrinter:[NSString stringWithFormat:@"F08 V%d", (int)[lineFeedStepper value]]];
 }
 
-- (IBAction)lineFeedStepperValueChanged:(id)sender {
+- (IBAction)lineFeedStepperValueChanged:(id)sender 
+{
+    self.lineFeedValue.text = [NSString stringWithFormat:@"%d", (int)[lineFeedStepper value]];
 }
 
-- (IBAction)pixelFeedButtonTouch:(id)sender {
+- (IBAction)pixelFeedButtonTouch:(id)sender 
+{
+    [self sendCommandToPrinter:[NSString stringWithFormat:@"F09 V%d", (int)[pixelFeedStepper value]]];
 }
 
-- (IBAction)pixelFeedStepperValueChanged:(id)sender {
+- (IBAction)pixelFeedStepperValueChanged:(id)sender
+{
+    self.pixelFeedValue.text = [NSString stringWithFormat:@"%d", (int)[pixelFeedStepper value]];
 }
 
-- (IBAction)characterSpacingStepperValueChanged:(id)sender {
+- (IBAction)characterSpacingStepperValueChanged:(id)sender 
+{
+    self.characterSpacingValue.text = [NSString stringWithFormat:@"%d", (int)[characterSpacingStepper value]];
+    [self sendCommandToPrinter:[NSString stringWithFormat:@"F12 V%d", (int)[characterSpacingStepper value]]];
 }
 
-- (IBAction)lineHeightStepperValueChanged:(id)sender {
+- (IBAction)lineHeightStepperValueChanged:(id)sender
+{
+    self.lineHeightValue.text = [NSString stringWithFormat:@"%d", (int)[lineHeightStepper value]];
+    [self sendCommandToPrinter:[NSString stringWithFormat:@"F13 V%d", (int)[lineHeightStepper value]]];
 }
 
 
