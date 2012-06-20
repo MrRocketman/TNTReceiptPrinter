@@ -556,6 +556,11 @@
     [self sendCommandToPrinter:[NSString stringWithFormat:@"F13 V%d", (int)[lineHeightStepper value]]];
 }
 
+- (IBAction)openCashDrawerButtonTouch:(id)sender 
+{
+    [self sendCommandToPrinter:@"P12"];
+}
+
 
 
 @end

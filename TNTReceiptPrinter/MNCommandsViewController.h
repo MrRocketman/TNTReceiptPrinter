@@ -134,5 +134,6 @@ enum
 - (IBAction)pixelFeedStepperValueChanged:(id)sender;
 - (IBAction)characterSpacingStepperValueChanged:(id)sender;
 - (IBAction)lineHeightStepperValueChanged:(id)sender;
+- (IBAction)openCashDrawerButtonTouch:(id)sender;
 
 @end
