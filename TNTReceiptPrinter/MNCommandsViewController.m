@@ -9,7 +9,7 @@
 #import "MNCommandsViewController.h"
 #import "GCDAsyncSocket.h"
 
-#define HOST @"169.254.1.1"
+#define HOST @"1.2.3.4"
 #define HOST_PORT 2000
 #define COMMAND_FINISHED 5
 
