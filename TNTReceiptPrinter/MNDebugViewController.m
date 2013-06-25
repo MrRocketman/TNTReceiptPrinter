@@ -10,7 +10,7 @@
 #import "GCDAsyncSocket.h"
 #import "TheBitmap.h"
 
-#define HOST @"169.254.1.1"
+#define HOST @"1.2.3.4"
 #define HOST_PORT 2000
 #define LINE_FEED 10
 #define CARRIAGE_RETURN 13
